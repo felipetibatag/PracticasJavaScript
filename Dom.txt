@@ -1,0 +1,15 @@
+getElementsByTagName
+    let paragraphs = document.body.getElementsByTagName("p");
+getElementsById
+    let ostrich = document.getElementById("gertrude");
+getElementsByClass
+    let ostrich = document.getElementById("titulos");
+insertBefore
+    let paragraphs = document.body.getElementsByTagName("p");
+    document.body.insertBefore(paragraphs[2], paragraphs[0]);
+document.createTextElement ("P");
+nodo.appendChild(elemento);
+
+
+Para agregar propiedades a un elemento o quitarsela es con getAttribute o setAttribute, propiedades como id, name, class u otras que tenga el elemento.
+

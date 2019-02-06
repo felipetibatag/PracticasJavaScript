@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div id="emoji" style="position: absolute;">💨</div>
+    <script>
+      let emoji = document.getElementById("emoji");
+      document.addEventListener("mousemove", event => {
+        emoji.style.top = (event.clientY -20) + "px";
+        emoji.style.left = (event.clientX -20)+ "px";
+        event.preventDefault();
+
+        console.log(event.clientX);
+      });
+    </script>
+  </body>
+</html>

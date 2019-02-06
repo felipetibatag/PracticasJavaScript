@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eventos</title>
+  </head>
+  <body>
+    <p style="text-align: center">🎈</p>
+    <script>
+      let globo = document.getElementsByTagName("p")[0];
+      let sizeFont = parseFloat(window.getComputedStyle(globo).fontSize);
+      document.addEventListener("keydown", event => {
+        //38 arriba 40 abajo
+        if (event.keyCode == 38) {
+          if (sizeFont == 150) {
+            document.removeEventListener("keydown", this);
+            document.removeEventListener("keyup", this);
+            globo.textContent = "💥";
+          } else {
+            sizeFont = sizeFont + 1;
+            globo.style.fontSize = sizeFont + "px";
+          }
+        }
+        if (event.keyCode == 40) {
+          if (sizeFont < 150) {
+            sizeFont = sizeFont - 1;
+            globo.style.fontSize = sizeFont + "px";
+          }
+        }
+        event.preventDefault();
+      });
+    </script>
+  </body>
+</html>

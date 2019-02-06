@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <input type="file" />
+    <p id="texto">adfs</p>
+    <script>
+      function readFile(file) {
+        return new Promise((resolve, reject) => {
+          let reader = new FileReader();
+          reader.addEventListener("load", () => resolve(reader.result));
+          reader.addEventListener("error", () => reject(reader.error));
+          reader.readAsText(file);
+        });
+      }
+      let input = document.querySelector("input");// este input SIEMPRE devolvera un arreglo "no real", usar la función Array.from si son muchos archivos que se agregaron en la entrada
+      input.addEventListener("change", () => {
+        readFile(input.files[0])
+        .then(valor => console.log(valor))
+        .catch(valor=>console.log("Error"));
+      });
+    </script>
+  </body>
+</html>

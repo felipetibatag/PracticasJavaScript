@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejercio Dom</title>
+  </head>
+  <body>
+    <h1>Mountains</h1>
+
+    <div id="mountains"></div>
+
+    <script>
+      const MOUNTAINS = [
+        { name: "Kilimanjaro", height: 5895, place: "Tanzania" },
+        { name: "Everest", height: 8848, place: "Nepal" },
+        { name: "Mount Fuji", height: 3776, place: "Japan" },
+        { name: "Vaalserberg", height: 323, place: "Netherlands" },
+        { name: "Denali", height: 6168, place: "United States" },
+        { name: "Popocatepetl", height: 5465, place: "Mexico" },
+        { name: "Mont Blanc", height: 4808, place: "Italy/France" }
+      ];
+
+      let dMountains=document.getElementById("mountains");
+      let tabla=document.createElement("table");
+      let fila=document.createElement("tr");
+      Object.keys(MOUNTAINS[0]).forEach(elemento=>{
+        let encabezado=document.createElement("TH");
+        let texto=document.createTextNode(String(elemento).toUpperCase());
+        encabezado.appendChild(texto);
+        fila.appendChild(encabezado);
+      });
+      tabla.appendChild(fila);
+
+      MOUNTAINS.forEach(elemento=>{
+          let fDatos=document.createElement("tr");
+          let tdName=document.createElement("td");
+          let txtName=document.createTextNode(elemento.name);
+          tdName.appendChild(txtName);
+          let tdHeight=document.createElement("td");
+          tdHeight.style.textAlign="right";
+          let txtHeight=document.createTextNode(elemento.height);
+          tdHeight.appendChild(txtHeight);
+          let tdPlace=document.createElement("td");
+          let txtPlace=document.createTextNode(elemento.place);
+          tdPlace.appendChild(txtPlace);
+          fDatos.appendChild(tdName);
+          fDatos.appendChild(tdHeight);
+          fDatos.appendChild(tdPlace);
+          tabla.appendChild(fDatos);
+      });
+
+
+      dMountains.appendChild(tabla);
+        
+    </script>
+  </body>
+</html>

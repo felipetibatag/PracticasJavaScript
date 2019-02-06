@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prueba</title>        
+    </head>
+    <body>
+        <p>Uno</p>
+        <p>Dos</p>
+        <p class="NumeroTres" id="prueba">Tres</p>
+        
+        <script>
+                let parrafos=document.body.getElementsByTagName("P");
+                document.body.insertBefore(parrafos[2],parrafos[0]);
+                document.body.getElementsByTagName("p")[1].remove();
+                let nodo = document.createElement("p");
+                let texto= document.createTextNode("Insertando elemento nuevo");
+                nodo.appendChild(texto);
+                document.body.appendChild(nodo);
+                if(document.getElementsByTagName("p")[0].getAttribute("class")=="NumeroTres"){
+                    document.body.appendChild(document.createElement("p").appendChild(document.createTextNode("Si tiene la clase NumeroUno")));
+                }else{
+                    document.body.appendChild(document.createElement("p").appendChild(document.createTextNode("No paso el if")));
+                }
+                
+        </script>
+    </body>
+</html>

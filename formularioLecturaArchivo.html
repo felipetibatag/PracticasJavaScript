@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <input type="file" multiple/>
+    <p id="texto">adfs</p>
+    <script>
+      let input = document.querySelector("input");
+      let parrafo;
+      input.addEventListener("change", () => {
+        for (let file of Array.from(input.files)) {
+          let reader = new FileReader();
+          reader.addEventListener("load", () => {
+            console.log("archivo " + file.name + "empieza con" + reader.result);
+            parrafo = reader.result;
+            document.getElementById("texto").textContent=reader.result;
+            console.log(parrafo);
+          });
+          reader.readAsText(file);
+        }
+    });
+    </script>
+  </body>
+</html>

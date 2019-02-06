@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fetch</title>
+  </head>
+  <body>
+      <p id="texto"></p>
+    <script>
+      let solicitud = new Request("https://eloquentjavascript.net/author");
+      let encabezados = new Headers();
+      let init={headers:encabezados,method:"GET"};
+      encabezados.append("Accept", "text/plain");
+      encabezados.append("content-type","text/plain");
+      fetch(solicitud, init).then(respuesta => {
+        respuesta.text().then(datos => document.getElementById("texto").textContent=datos);
+      });
+    </script>
+  </body>
+</html>

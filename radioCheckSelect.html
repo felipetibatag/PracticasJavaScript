@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Titulo</title>
+  </head>
+  <body>
+    <div>
+      <span>
+        <select id="select">
+          <option value="1">Uno</option>
+          <option value="2">Dos</option>
+          <option value="3">Tres</option>
+          <option value="4">Cuatro</option>
+          <option value="5">Cinco</option>
+          <option value="6">Seis</option>
+          <option value="7">Siete</option>
+        </select>
+      </span>
+      <span><p style="display: inline" id="seleccionada"></p> </span>
+    </div>
+    <hr />
+    <div>
+      <label> <input type="radio" value="Col" name="paises" />Colombia </label>
+      <label> <input type="radio" value="Bra" name="paises" />Brasil </label>
+      <label> <input type="radio" value="Chi" name="paises" />Chile </label>
+    </div>
+    <div>
+        <input type="checkbox" value="ing">Ingeniero
+        <input type="checkbox" value="mat">Matemático
+        <input type="checkbox" value="psi">Psicologo
+    </div>
+
+    <script>
+      let opcion = document.getElementById("seleccionada");
+      let select = document.querySelector("select");
+      select.addEventListener("change", () => {
+        Array.from(select.options).forEach(element => {
+          if (element.selected) {
+            opcion.textContent = element.value;
+            console.log(element.value);
+          }
+        });
+      });
+
+      let paises=document.querySelectorAll("[name=paises]");
+      Array.from(paises).forEach(elemento=>{
+          elemento.addEventListener("change",()=>{
+              opcion.textContent=elemento.value;
+          });
+      });
+
+      let profesiones=document.querySelectorAll("[type=checkbox]");
+      Array.from(profesiones).forEach(elemento=>{
+          elemento.addEventListener("change",()=>{
+              if(elemento.checked){
+                  opcion.textContent+=" " + elemento.value;
+              }
+          });
+      });
+
+    </script>
+  </body>
+</html>
